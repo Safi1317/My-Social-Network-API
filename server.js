@@ -9,17 +9,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// app.get("/", (req, res) => {
-// Using model in route
-// 	Thought.find({}, (err, result) => {
-// 		if (err) {
-// 			res.status(500).send(err);
-// 		} else {
-// 			res.status(200).json(result);
-// 		}
-// 	});
-// });
+app.use(routes);
 
 db.once("open", () => {
 	app.listen(PORT, () => {

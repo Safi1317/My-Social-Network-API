@@ -1,4 +1,4 @@
-const { Thought, User } = require("../../models/");
+const { Thought, User } = require("../models");
 
 module.exports = {
 	getThoughts(req, res) {
@@ -6,7 +6,7 @@ module.exports = {
 			.then((thought) => res.json(thought))
 			.catch((err) => res.status(500).json(err));
 	},
-	getSingleThoughts(req, res) {
+	getSingleThought(req, res) {
 		Thought.findOne({ _id: req.params.thoughtId })
 			.then((thought) =>
 				!thought
@@ -16,7 +16,7 @@ module.exports = {
 			.catch((err) => res.status(500).json(err));
 	},
 	// create a new post
-	createThoughts(req, res) {
+	createThought(req, res) {
 		Thought.create(req.body)
 			.then((thought) => {
 				return User.findOneAndUpdate(
