@@ -39,7 +39,7 @@ module.exports = {
 			.catch((err) => res.status(500).json(err));
 	},
 	//delete a user
-	//BONUS: Remove a user's associated thoughts when deleted.
+	
 	deleteUser(req, res) {
 		User.findOneAndDelete({ _id: req.params.userId })
 			.then((user) =>
